@@ -1,4 +1,4 @@
-﻿namespace ServiceLocatorTest2.Services;
+﻿namespace ServiceLocatorIdea.Services;
 
 public class ArrayReversalService : IArrayReversalService
 {

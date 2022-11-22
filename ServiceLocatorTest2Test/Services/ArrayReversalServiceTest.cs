@@ -1,6 +1,6 @@
-using ServiceLocatorTest2.Services;
+using ServiceLocatorIdea.Services;
 
-namespace ServiceLocatorTest2Test.Services;
+namespace ServiceLocatorIdeaTest.Services;
 
 public class ArrayReversalServiceTest
 {
@@ -20,5 +20,5 @@ public class ArrayReversalServiceTest
         Assert.Equal(toReverse.Length, reversed.Length);
     }
 
-    
+
 }

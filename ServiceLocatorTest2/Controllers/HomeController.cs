@@ -1,56 +1,56 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ServiceLocatorTest2.Models;
-using System.Diagnostics;
-using ServiceLocatorTest2.Services;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using ServiceLocatorIdea.Models;
+using ServiceLocatorIdea.Models;
+using ServiceLocatorIdea.Services;
 
-namespace ServiceLocatorTest2.Controllers
+namespace ServiceLocatorIdea.Controllers;
+
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly ILogger<HomeController> _logger;
+    private readonly IArrayReversalService _arrayReversalService;
+
+    public HomeController(ILogger<HomeController> logger, IArrayReversalService arrayReversalService)
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IArrayReversalService _arrayReversalService;
+        _logger = logger;
+        _arrayReversalService = arrayReversalService;
+    }
+    public ActionResult Index()
+    {
+        return View();
+    }
 
-        public HomeController(ILogger<HomeController> logger, IArrayReversalService arrayReversalService)
+    [HttpPost]
+    public IActionResult ReverseArray(string arrayToReverse)
+    {
+        if (arrayToReverse == null)
         {
-            _logger = logger;
-            _arrayReversalService = arrayReversalService;
+            return Error();
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult ReverseArray(string arrayToReverse)
-        {
-            if (arrayToReverse == null)
-            {
-                return Error();
-            }
             
-            var reversedArray = _arrayReversalService.ReverseArray(arrayToReverse);
+        var reversedArray = _arrayReversalService.ReverseArray(arrayToReverse);
 
-            var model = new ReversedArrayModel()
-            {
-                InitialArray = arrayToReverse,
-                ReversedArray = reversedArray
-            };
-
-            return View(model);
-        }
-
-        public IActionResult Privacy()
+        var model = new ReversedArrayModel()
         {
-            return View();
-        }
+            InitialArray = arrayToReverse,
+            ReversedArray = reversedArray
+        };
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        return View(model);
+    }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel
         {
-            return View(new ErrorViewModel
-            {
-                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-            });
-        }
+            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+        });
     }
 }

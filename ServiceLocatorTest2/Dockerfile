@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ServiceLocatorTest2/ServiceLocatorTest2.csproj", "ServiceLocatorTest2/"]
-RUN dotnet restore "ServiceLocatorTest2/ServiceLocatorTest2.csproj"
+COPY ["ServiceLocatorIdea/ServiceLocatorIdea.csproj", "ServiceLocatorIdea/"]
+RUN dotnet restore "ServiceLocatorIdea/ServiceLocatorIdea.csproj"
 COPY . .
-WORKDIR "/src/ServiceLocatorTest2"
-RUN dotnet build "ServiceLocatorTest2.csproj" -c Release -o /app/build
+WORKDIR "/src/ServiceLocatorIdea"
+RUN dotnet build "ServiceLocatorIdea.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ServiceLocatorTest2.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "ServiceLocatorIdea.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ServiceLocatorTest2.dll"]
+ENTRYPOINT ["dotnet", "ServiceLocatorIdea.dll"]

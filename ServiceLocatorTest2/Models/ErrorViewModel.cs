@@ -1,4 +1,4 @@
-namespace ServiceLocatorTest2.Models
+namespace ServiceLocatorIdea.Models
 {
     public class ErrorViewModel
     {

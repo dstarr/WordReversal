@@ -1,4 +1,4 @@
-using ServiceLocatorTest2.Services;
+using ServiceLocatorIdea.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

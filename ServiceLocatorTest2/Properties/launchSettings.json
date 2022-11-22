@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "ServiceLocatorTest2": {
+    "ServiceLocatorIdea": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
