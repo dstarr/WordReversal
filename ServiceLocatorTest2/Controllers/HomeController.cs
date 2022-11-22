@@ -12,10 +12,8 @@ public class HomeController : Controller
 
     public HomeController(IServiceProvider serviceProvider)
     {
-
         _arrayReversalService = serviceProvider.GetService<IArrayReversalService>();
         _logger = serviceProvider.GetService<ILogger<HomeController>>();
-
     }
 
     public ActionResult Index()
