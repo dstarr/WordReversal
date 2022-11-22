@@ -1,21 +1,23 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ServiceLocatorIdea.Models;
-using ServiceLocatorIdea.Models;
 using ServiceLocatorIdea.Services;
 
 namespace ServiceLocatorIdea.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-    private readonly IArrayReversalService _arrayReversalService;
+    private readonly ILogger<HomeController>? _logger;
+    private readonly IArrayReversalService? _arrayReversalService;
 
-    public HomeController(ILogger<HomeController> logger, IArrayReversalService arrayReversalService)
+    public HomeController(IServiceProvider serviceProvider)
     {
-        _logger = logger;
-        _arrayReversalService = arrayReversalService;
+
+        _arrayReversalService = serviceProvider.GetService<IArrayReversalService>();
+        _logger = serviceProvider.GetService<ILogger<HomeController>>();
+
     }
+
     public ActionResult Index()
     {
         return View();
