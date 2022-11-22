@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    
+    @using (Html.BeginForm("ReverseArray", "Home", FormMethod.Post))
+    {
+        <fieldset>
+            <legend>Array Reverser</legend>
+            <div>
+                <label for="TheArray">Enter a space-delimited array</label>
+                <input type="text" name="arrayToReverse" />
+            </div>
+            <p>
+                <input type="submit" value="Reverse it!" />
+            </p>
+        </fieldset>
+    }
+</div>
