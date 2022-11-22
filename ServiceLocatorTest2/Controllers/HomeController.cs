@@ -24,12 +24,12 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult ReverseArray(string arrayToReverse)
     {
-        if (arrayToReverse == null)
-        {
-            return Error();
-        }
-            
-        var reversedArray = _arrayReversalService.ReverseArray(arrayToReverse);
+        if (arrayToReverse == null) throw new ArgumentNullException(nameof(arrayToReverse));
+        
+        var reversedArray = _arrayReversalService?.ReverseArray(arrayToReverse);
+
+        if (reversedArray == null) throw new NullReferenceException(nameof(reversedArray));
+
 
         var model = new ReversedArrayModel()
         {
