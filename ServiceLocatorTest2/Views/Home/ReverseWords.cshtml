@@ -1,0 +1,18 @@
+﻿@model ReversedArrayModel
+
+@{
+    ViewBag.Title = "Results";
+    Layout = "_Layout";
+}
+
+<div>
+    <div>
+        <h3>Initial Array</h3>
+        @Html.Raw(Model.InitialArray)
+    </div>
+    
+    <div>
+        <h3>Reversed Array</h3>
+        @Html.Raw(Model.ReversedArray)
+    </div>
+</div>
