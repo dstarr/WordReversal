@@ -1,4 +1,4 @@
-﻿namespace ServiceLocatorIdea.Models;
+﻿namespace WordReversal.Models;
 
 public class ReversedArrayModel
 {

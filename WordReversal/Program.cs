@@ -1,4 +1,4 @@
-using ServiceLocatorIdea.Services;
+using WordReversal.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

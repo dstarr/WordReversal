@@ -1,6 +1,6 @@
 using ServiceLocatorIdea.Services;
 
-namespace ServiceLocatorIdeaTest.Services;
+namespace WordReversal.Test.Services;
 
 public class ArrayReversalServiceTest
 {
@@ -19,6 +19,4 @@ public class ArrayReversalServiceTest
 
         Assert.Equal(toReverse.Length, reversed.Length);
     }
-
-
 }

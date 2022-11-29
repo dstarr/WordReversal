@@ -1,4 +1,4 @@
-﻿namespace ServiceLocatorIdea.Services;
+﻿namespace WordReversal.Services;
 
 public interface IWordReversalService
 {

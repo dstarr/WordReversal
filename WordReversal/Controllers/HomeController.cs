@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using ServiceLocatorIdea.Models;
-using ServiceLocatorIdea.Services;
+using WordReversal.Models;
+using WordReversal.Services;
 
-namespace ServiceLocatorIdea.Controllers;
+namespace WordReversal.Controllers;
 
 public class HomeController : Controller
 {
