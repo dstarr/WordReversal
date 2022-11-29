@@ -2,19 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center" style="width: 300px">
     
     @using (Html.BeginForm("ReverseWords", "Home", FormMethod.Post))
     {
         <fieldset>
             <legend>Word Reverser</legend>
             <div>
-                <label for="TheArray">Enter a space-delimited array or words</label><br/>
-                <input type="text" name="wordsToReverse" />
+                <label class="form-label" for="wordsToReverse">Enter a space-delimited set of words</label>
+                <input maxlength="50" size="50" class="form-control" type="text" name="wordsToReverse" id="wordsToReverse"  />
             </div>
-            <p>
-                <input type="submit" value="Reverse it!" />
-            </p>
+            <div style="padding-top: 20px">
+                <input class="btn-primary" type="submit" value="Reverse it!" />
+            </div>
         </fieldset>
     }
 </div>
