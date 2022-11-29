@@ -4,13 +4,13 @@
 
 <div class="text-center">
     
-    @using (Html.BeginForm("ReverseArray", "Home", FormMethod.Post))
+    @using (Html.BeginForm("ReverseWords", "Home", FormMethod.Post))
     {
         <fieldset>
-            <legend>Array Reverser</legend>
+            <legend>Word Reverser</legend>
             <div>
-                <label for="TheArray">Enter a space-delimited array</label>
-                <input type="text" name="arrayToReverse" />
+                <label for="TheArray">Enter a space-delimited array or words</label><br/>
+                <input type="text" name="wordsToReverse" />
             </div>
             <p>
                 <input type="submit" value="Reverse it!" />

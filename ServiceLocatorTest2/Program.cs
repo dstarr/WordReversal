@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<IArrayReversalService, ArrayReversalService>();
+builder.Services.AddTransient<IWordReversalService, WordReversalService>();
 
 var app = builder.Build();
 

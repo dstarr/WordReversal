@@ -4,18 +4,18 @@ namespace ServiceLocatorIdeaTest.Services;
 
 public class ArrayReversalServiceTest
 {
-    private readonly ArrayReversalService _service;
+    private readonly WordReversalService _service;
 
     public ArrayReversalServiceTest()
     {
-        _service = new ArrayReversalService();
+        _service = new WordReversalService();
     }
 
     [Fact]
     public void ReturnsSameLength()
     {
         var toReverse = "David Starr";
-        var reversed = _service.ReverseArray(toReverse);
+        var reversed = _service.ReverseWords(toReverse);
 
         Assert.Equal(toReverse.Length, reversed.Length);
     }

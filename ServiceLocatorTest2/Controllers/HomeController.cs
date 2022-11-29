@@ -7,13 +7,11 @@ namespace ServiceLocatorIdea.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController>? _logger;
-    private readonly IArrayReversalService? _arrayReversalService;
+    private readonly ILogger<HomeController> _logger;
 
-    public HomeController(IServiceProvider serviceProvider)
+    public HomeController(ILogger<HomeController> logger)
     {
-        _arrayReversalService = serviceProvider.GetService<IArrayReversalService>();
-        _logger = serviceProvider.GetService<ILogger<HomeController>>();
+        _logger = logger;
     }
 
     public ActionResult Index()
@@ -22,19 +20,17 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult ReverseArray(string arrayToReverse)
+
+    public IActionResult ReverseWords(
+        [FromServices] IWordReversalService wordReversalService, 
+        string wordsToReverse)
     {
-        if (arrayToReverse == null) throw new ArgumentNullException(nameof(arrayToReverse));
-        
-        var reversedArray = _arrayReversalService?.ReverseArray(arrayToReverse);
-
-        if (reversedArray == null) throw new NullReferenceException(nameof(reversedArray));
-
+        var reversedWords = wordReversalService.ReverseWords(wordsToReverse);
 
         var model = new ReversedArrayModel()
         {
-            InitialArray = arrayToReverse,
-            ReversedArray = reversedArray
+            InitialArray = wordsToReverse,
+            ReversedArray = reversedWords
         };
 
         return View(model);
