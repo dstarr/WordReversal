@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ServiceLocatorTest2\ServiceLocatorIdea.csproj" />
+    <ProjectReference Include="..\ServiceLocatorTest2\WordReversal.csproj" />
   </ItemGroup>
 
 </Project>
