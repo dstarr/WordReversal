@@ -1,4 +1,4 @@
-using ServiceLocatorIdea.Services;
+using WordReversal.Services;
 
 namespace WordReversal.Test.Services;
 
