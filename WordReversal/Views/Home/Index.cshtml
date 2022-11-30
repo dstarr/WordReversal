@@ -10,10 +10,13 @@
             <legend>Word Reverser</legend>
             <div>
                 <label class="form-label" for="wordsToReverse">Enter a space-delimited set of words</label>
-                <input maxlength="50" size="50" class="form-control" type="text" name="wordsToReverse" id="wordsToReverse"  />
+                <input maxlength="50" size="50" class="form-control" type="text" name="wordsToReverse" id="wordsToReverse" required />
+                <div class="invalid-feedback">
+                    Please enter at least one word.
+                </div>
             </div>
             <div style="padding-top: 20px">
-                <input class="btn-primary" type="submit" value="Reverse it!" />
+                <input class="btn btn-primary" type="submit" value="Reverse it!" />
             </div>
         </fieldset>
     }
